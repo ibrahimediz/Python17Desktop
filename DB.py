@@ -62,7 +62,7 @@ def PersonelListe():
 def ArtistListe():
   db = sql.connect(r"DB"+os.sep+"chinook.db")
   cur = db.cursor()
-  sorgu="""select *from artists;"""
+  sorgu="""select * from artists;"""
   cur.execute(sorgu)
   liste=cur.fetchall()
   return liste
@@ -72,6 +72,20 @@ def AlbumListe(param):
   db = sql.connect(r"DB"+os.sep+"chinook.db")
   cur = db.cursor()
   sorgu="""select AlbumId,Title from albums where artistid={};""".format(param)
+  cur.execute(sorgu)
+  liste=cur.fetchall()
+  return liste
+
+
+def ParcaListe(param):
+  db = sql.connect(r"DB"+os.sep+"chinook.db")
+  cur = db.cursor()
+  sorgu="""SELECT TrackId,
+       Name,
+       UnitPrice,
+       Bytes
+    FROM tracks
+   WHERE AlbumId = {};""".format(param)
   cur.execute(sorgu)
   liste=cur.fetchall()
   return liste

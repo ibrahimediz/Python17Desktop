@@ -13,6 +13,7 @@ class App(QMainWindow):
         self.win =  uic.loadUi(r"GUI\AnaMenu.ui")
         self.win.btYeni.clicked.connect(self.tiklandi)
         self.win.cmbArtist.currentIndexChanged.connect(self.artistDegis)
+        self.win.cmbAlbum.currentIndexChanged.connect(self.Tabladoldur)
         self.comboDoldur()
         self.PersonelDoldur()
         self.ArtistDoldur()
@@ -26,7 +27,6 @@ class App(QMainWindow):
     def comboDoldur(self): 
         liste=DB.MusteriListe()
         self.win.cmbMusteri.addItem("Seçiniz","-1")
-       
         for id,adi in liste:
               self.win.cmbMusteri.addItem(adi,int(id))
     
@@ -58,9 +58,18 @@ class App(QMainWindow):
         secilen = self.win.cmbMusteri.currentIndex()
         print(secilen)
 
+
+
+
     def Tabladoldur(self):
-        item=QTableWidgetItem("Deneme")
-        self.win.tblParca.setItem(0,0,item)
+        albumID = self.win.cmbAlbum.itemData(self.win.cmbMusteri.currentIndex())
+        if albumID != "-1" and albumID:
+            self.win.tblParca.setRowCount(100)
+            self.win.tblParca.setColumnCount(4)
+            liste = DB.ParcaListe(albumID)
+            print(liste)
+            item=QTableWidgetItem("Deneme")
+            self.win.tblParca.setItem(0,0,item)
     
     
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
-    <height>790</height>
+    <width>486</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>70</y>
-      <width>411</width>
-      <height>431</height>
+      <x>0</x>
+      <y>10</y>
+      <width>481</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -114,21 +114,21 @@
        </item>
       </layout>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="tblParca">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>160</y>
-        <width>381</width>
-        <height>151</height>
+        <width>451</width>
+        <height>321</height>
        </rect>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>320</y>
+        <x>50</x>
+        <y>490</y>
         <width>381</width>
         <height>51</height>
        </rect>
@@ -214,7 +214,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1165</width>
+     <width>486</width>
      <height>18</height>
     </rect>
    </property>
