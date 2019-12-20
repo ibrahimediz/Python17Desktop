@@ -58,19 +58,24 @@ class App(QMainWindow):
         secilen = self.win.cmbMusteri.currentIndex()
         print(secilen)
 
-
-
-
     def Tabladoldur(self):
-        albumID = self.win.cmbAlbum.itemData(self.win.cmbMusteri.currentIndex())
+        self.win.tblParca.clear()
+        albumID = self.win.cmbAlbum.itemData(self.win.cmbAlbum.currentIndex())
         if albumID != "-1" and albumID:
             self.win.tblParca.setRowCount(100)
             self.win.tblParca.setColumnCount(4)
             liste = DB.ParcaListe(albumID)
-            print(liste)
-            item=QTableWidgetItem("Deneme")
-            self.win.tblParca.setItem(0,0,item)
-    
+            index = 0
+            for id,adi,ucret,byte in liste:
+                item1 = QTableWidgetItem(str(id))
+                item2 = QTableWidgetItem(adi)
+                item3 = QTableWidgetItem(str(ucret))
+                item4 = QTableWidgetItem(str(byte))
+                self.win.tblParca.setItem(index,0,item1)
+                self.win.tblParca.setItem(index,1,item2)
+                self.win.tblParca.setItem(index,2,item3)
+                self.win.tblParca.setItem(index,3,item4)
+                index += 1
     
 
 if __name__ == '__main__':
