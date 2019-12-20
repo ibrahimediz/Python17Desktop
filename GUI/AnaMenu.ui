@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>521</height>
+    <width>1165</width>
+    <height>790</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>350</x>
+      <y>70</y>
       <width>411</width>
       <height>431</height>
      </rect>
@@ -79,13 +79,13 @@
         <widget class="QComboBox" name="cmbMusteri"/>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="comboBox_2"/>
+        <widget class="QComboBox" name="cmbPersonel"/>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="comboBox_3"/>
+        <widget class="QComboBox" name="cmbArtist"/>
        </item>
        <item row="3" column="1">
-        <widget class="QComboBox" name="comboBox_4"/>
+        <widget class="QComboBox" name="cmbAlbum"/>
        </item>
        <item row="4" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -214,7 +214,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>439</width>
+     <width>1165</width>
      <height>18</height>
     </rect>
    </property>

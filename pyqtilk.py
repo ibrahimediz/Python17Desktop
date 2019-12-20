@@ -1,6 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,QTableWidgetItem
 from PyQt5 import uic
+from PyQt5 import  QtCore
+import DB
 
 
 
@@ -10,17 +12,45 @@ class App(QMainWindow):
         super().__init__()
         self.win =  uic.loadUi(r"GUI\AnaMenu.ui")
         self.win.btYeni.clicked.connect(self.tiklandi)
-        self.win.cmbMusteri.currentIndexChanged.connect(self.degisti)
+        self.win.cmbArtist.currentIndexChanged.connect(self.artistDegis)
         self.comboDoldur()
+        self.PersonelDoldur()
+        self.ArtistDoldur()
+        self.PersonelDoldur()
+        self.Tabladoldur()
         self.initUI()
         
     def initUI(self):
         self.win.show()
 
     def comboDoldur(self): 
-        for i in range(0,5):
-            self.win.cmbMusteri.addItem("Musteri"+str(i),str(i))
+        liste=DB.MusteriListe()
+        self.win.cmbMusteri.addItem("Seçiniz","-1")
+       
+        for id,adi in liste:
+              self.win.cmbMusteri.addItem(adi,int(id))
     
+    def PersonelDoldur(self): 
+        liste=DB.PersonelListe()
+        self.win.cmbPersonel.addItem("Seçiniz","-1")
+        for id,adi in liste:
+              self.win.cmbPersonel.addItem(adi,int(id))
+    def ArtistDoldur(self): 
+        liste=DB.ArtistListe()
+        self.win.cmbArtist.addItem("Seçiniz","-1")
+        for id,adi in liste:
+              self.win.cmbArtist.addItem(adi,int(id))
+    def AlbumDoldur(self,ArtistID): 
+        liste=DB.AlbumListe(ArtistID)
+        self.win.cmbAlbum.addItem("Seçiniz","-1")
+        for id,adi in liste:
+              self.win.cmbAlbum.addItem(adi,int(id))
+
+
+    def artistDegis(self):
+        self.win.cmbAlbum.clear()
+        print(self.win.cmbArtist.currentIndex())
+        self.AlbumDoldur(self.win.cmbArtist.currentIndex())
     def tiklandi(self):
         print("buton çalıştı")
 
@@ -28,7 +58,9 @@ class App(QMainWindow):
         secilen = self.win.cmbMusteri.currentIndex()
         print(secilen)
 
-          
+    def Tabladoldur(self):
+        item=QTableWidgetItem("Deneme")
+        self.win.tblParca.setItem(0,0,item)
     
     
 
